@@ -1,0 +1,16 @@
+.container_home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        width: 70%;
+        text-align: justify;
+        column-count: 2;
+        column-gap: 60px;
+    }
+}
+.logo {
+    width: 350px;
+}
