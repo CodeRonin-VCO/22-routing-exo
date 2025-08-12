@@ -5,6 +5,7 @@ import AboutPage from './routes/about.route'
 import DestinationsList from './routes/destinations/destinations-list/destinations-list.route'
 import DestinationDetails from './routes/destinations/destinations-list/destinations-details.route'
 import NavBar from './features/nav-bar/nav-bar'
+import { useState } from 'react'
 
 function App() {
 
@@ -23,4 +24,4 @@ function App() {
     )
 }
 
-export default App
+export default App;

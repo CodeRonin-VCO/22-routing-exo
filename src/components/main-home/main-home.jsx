@@ -1,5 +1,9 @@
 import styles from "./main-home.module.css";
 
+// ↓ Import d'un fichier pour une utilisation dans un composant
+//   Bon plan =)
+import logo from '../../assets/logo/logo-travel-agency.jpg'
+
 export default function MainHome() {
 
 
@@ -7,7 +11,7 @@ export default function MainHome() {
         <>
             <div className={styles.container_home}>
                 <h1>Voici ma page d'accueil</h1>
-                <img src="./src/assets/logo/logo-travel-agency.jpg" alt="logo-travel-agency" className={styles.logo} />
+                <img src={logo} alt="logo-travel-agency" className={styles.logo} />
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio deleniti facere minus doloribus repellendus temporibus laudantium expedita cumque dolorum, at aut tempora laborum omnis maiores, error veritatis voluptatum quam voluptas!
                     Odio itaque eligendi tempore quae. Tenetur adipisci vitae magni quos, reiciendis laboriosam et. Voluptatum quam, recusandae ipsum soluta et iste velit? Qui sint veniam unde amet, voluptates doloremque perspiciatis numquam?
