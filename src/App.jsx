@@ -6,6 +6,7 @@ import DestinationsList from './routes/destinations/destinations-list/destinatio
 import DestinationDetails from './routes/destinations/destinations-list/destinations-details.route'
 import NavBar from './features/nav-bar/nav-bar'
 import { useState } from 'react'
+import NotFound from './components/not-found/not-found'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                     <Route index element={<DestinationsList />} />
                     <Route path=":id" element={<DestinationDetails />} />
                 </Route>
+                <Route path='/not-found' element={<NotFound />} />
             </Routes>
         </>
     )

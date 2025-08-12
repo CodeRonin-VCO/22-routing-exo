@@ -22,7 +22,6 @@
     border-radius: 8px;
 
     &:hover {
-        text-decoration: underline;
         background-color: lightgreen;
     }
 }

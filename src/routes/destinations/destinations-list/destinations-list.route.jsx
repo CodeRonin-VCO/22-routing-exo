@@ -1,27 +1,48 @@
-import { useState } from "react";
 import data from "../../../data/japon.json";
 import styles from "./destinations-list.module.scss";
-import { Link } from "react-router";
+import { Link, useParams, useSearchParams } from "react-router";
+import SearchBar from "../../../components/searchBar/search-bar";
 
 
 // ==== Composant principal ====
 export default function DestinationsList() {
-    // console.log("destinations", data);
+    // DB
     const destinations = data.destinations;
-    // console.log("destinations tableau", destinations);
+    
+    // Params & searchParams
+    const [searchParams, setSearchParams] = useSearchParams();
+    const query = searchParams.get("query") ?? "";
+    const location = searchParams.get("location");
+    
+    // Filtered DB
+    const destinationFiltered = destinations.filter(destination => {
+        const matchesQuery =  destination.name.toLowerCase().includes(query.toLowerCase());
+        const matchesLocation = location ? destination.location === location : true;
+
+        return matchesQuery && matchesLocation;
+    });
+
+    // Choice DB
+    const listToRender = query || location ? destinationFiltered : destinations;
 
     return (
         <>
             <h3 className={styles.title}>Destinations liste</h3>
+            <SearchBar
+                query={query}
+                setSearchParams={setSearchParams}
+                destinations={destinations}
+            />
             <div className={styles.container_list}>
                 {
-                    destinations.map(destination =>
+                    listToRender.map(destination => (
                         <CardsDestination
                             key={destination.id}
-                            destination={destination} />)
+                            destination={destination}
+                        />
+                    ))
                 }
             </div>
-
         </>
     )
 }
